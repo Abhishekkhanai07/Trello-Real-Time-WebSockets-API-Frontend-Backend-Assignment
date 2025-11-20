@@ -1,0 +1,243 @@
+/* ================================
+   GLOBAL RESET + VARIABLES
+===================================*/
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Inter", Arial, sans-serif;
+}
+
+:root {
+  --glass-bg: rgba(255, 255, 255, 0.17);
+  --glass-border: rgba(255, 255, 255, 0.35);
+  --card-bg: rgba(255, 255, 255, 0.9);
+  --btn-primary: #6d97be;
+  --btn-primary-hover: #3c3ce8;
+  --btn-danger: #ff4f5a;
+  --btn-danger-hover: #e63b46;
+  --smooth: 260ms cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+/* ================================
+   BACKGROUND
+===================================*/
+body {
+  background: radial-gradient(circle at top left, #b5aad8, #b3ce68);
+  padding: 20px;
+  overflow-x: hidden;
+}
+
+/* ================================
+   LAYOUT CONTAINERS
+===================================*/
+.app {
+  display: flex;
+  gap: 20px;
+  align-items: flex-start;
+}
+
+.board {
+  display: flex;
+  gap: 22px;
+  overflow-x: auto;
+  padding-bottom: 14px;
+}
+
+/* ================================
+   GLASS COLUMN / LIST
+===================================*/
+.column {
+  width: 270px;
+  padding: 16px;
+  backdrop-filter: blur(20px);
+  background: var(--glass-bg);
+  border: 1px solid var(--glass-border);
+  border-radius: 16px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.18);
+  transition: var(--smooth);
+  animation: fadeInUp 500ms ease forwards;
+}
+
+.column:hover {
+  transform: translateY(-6px) scale(1.02);
+  box-shadow: 0 14px 26px rgba(0, 0, 0, 0.26);
+}
+
+.column h2 {
+  font-size: 18px;
+  font-weight: 700;
+  color: #fff;
+  text-shadow: 0px 1px 3px rgba(0, 0, 0, 0.3);
+  margin-bottom: 10px;
+}
+
+/* ================================
+   CARD STYLE
+===================================*/
+.card {
+  background: var(--card-bg);
+  padding: 12px;
+  border-radius: 12px;
+  margin-bottom: 12px;
+  transition: var(--smooth);
+  border-left: 4px solid #5b5bff;
+  backdrop-filter: blur(6px);
+  animation: fadePop 0.35s ease forwards;
+  transform-origin: left;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+.card:hover {
+  transform: translateY(-4px) scale(1.02);
+  box-shadow: 0 10px 24px rgba(0, 0, 0, 0.22);
+}
+
+/* ================================
+   INPUTS
+===================================*/
+input {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 8px;
+  border-radius: 10px;
+  border: 1px solid rgba(255, 255, 255, 0.35);
+  background: rgba(255, 255, 255, 0.5);
+  outline: none;
+  transition: var(--smooth);
+}
+
+input:focus {
+  background: white;
+  border-color: #5b5bff;
+  box-shadow: 0 0 8px rgba(91, 91, 255, 0.4);
+}
+
+/* ================================
+   BUTTONS
+===================================*/
+button {
+  border: none;
+  padding: 10px 14px;
+  border-radius: 10px;
+  cursor: pointer;
+  font-weight: 600;
+  transition: var(--smooth);
+  letter-spacing: 0.3px;
+}
+
+/* Primary Button */
+.addBtn {
+  background: var(--btn-primary);
+  color: white;
+  width: 100%;
+}
+
+.addBtn:hover {
+  background: var(--btn-primary-hover);
+  transform: translateY(-3px);
+}
+
+/* Edit Button */
+.editBtn {
+  background: #ffe8a8;
+}
+
+.editBtn:hover {
+  background: #ffd26a;
+  transform: translateY(-2px);
+}
+
+/* Delete Button */
+.deleteBtn {
+  background: var(--btn-danger);
+  color: white;
+}
+
+.deleteBtn:hover {
+  background: var(--btn-danger-hover);
+  transform: translateY(-3px);
+}
+
+/* ================================
+   RIGHT SIDE EVENTS PANEL
+===================================*/
+.events {
+  width: 360px;
+  background: rgba(255, 255, 255, 0.75);
+  padding: 18px;
+  border-radius: 16px;
+  height: 95vh;
+  overflow-y: auto;
+  backdrop-filter: blur(10px);
+  box-shadow: 0 10px 26px rgba(0, 0, 0, 0.25);
+}
+
+.events h3 {
+  margin-bottom: 10px;
+  font-weight: 700;
+  font-size: 18px;
+}
+
+.event {
+  font-family: monospace;
+  background: rgba(240, 242, 255, 0.9);
+  padding: 8px 10px;
+  border-left: 4px solid #5b5bff;
+  border-radius: 8px;
+  margin-bottom: 6px;
+  animation: slideIn 0.4s ease forwards;
+}
+
+/* ================================
+   ANIMATIONS
+===================================*/
+@keyframes fadePop {
+  0% { opacity: 0; transform: scale(0.8); }
+  100% { opacity: 1; transform: scale(1); }
+}
+
+@keyframes fadeInUp {
+  0% { opacity: 0; transform: translateY(30px); }
+  100% { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes slideIn {
+  0% { opacity: 0; transform: translateX(-10px); }
+  100% { opacity: 1; transform: translateX(0); }
+}
+
+/* ================================
+   SCROLLBAR
+===================================*/
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.35);
+  border-radius: 10px;
+}
+.header-title {
+  font-size: 42px;
+  font-weight: 800;
+  margin-bottom: 20px;
+  color: #ffffff;
+  text-shadow: 0px 5px 18px rgba(0, 0, 0, 0.35);
+  animation: floatTitle 4s ease-in-out infinite;
+}
+
+@keyframes floatTitle {
+  0% { transform: translateY(0); }
+  50% { transform: translateY(-6px); }
+  100% { transform: translateY(0); }
+}
+/* ====== BACKGROUND ====== */
+
+
+@keyframes bgMove {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}

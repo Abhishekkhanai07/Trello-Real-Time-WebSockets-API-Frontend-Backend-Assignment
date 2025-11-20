@@ -1,0 +1,25 @@
+{
+  "boards": [
+    {
+      "id": "board_1",
+      "name": "Demo Board",
+      "lists": [
+        {
+          "id": "todo",
+          "name": "To Do",
+          "cards": []
+        },
+        {
+          "id": "doing",
+          "name": "Doing",
+          "cards": []
+        },
+        {
+          "id": "done",
+          "name": "Done",
+          "cards": []
+        }
+      ]
+    }
+  ]
+}
